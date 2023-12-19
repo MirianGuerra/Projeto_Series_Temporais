@@ -2,7 +2,7 @@
 title: "Report - Times Series"
 author: "wyhirai"
 date: "2023-12-19"
-output: html_document
+output: pdf_document
 editor_options: 
   chunk_output_type: console
 ---
