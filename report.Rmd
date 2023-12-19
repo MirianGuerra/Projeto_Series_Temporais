@@ -1,0 +1,38 @@
+---
+title: "Report - Times Series"
+author: "wyhirai"
+date: "2023-12-19"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#library used
+library(magrittr)
+library(dplyr)
+library(ggplot2)
+```
+
+Dados básico do R `Nile`e m formato de séries temporais. Esse conjunto e dados descreve a mensuração anual do fluxo do rio Nilo entre os anos de 1871 a 1970
+
+```{r}
+str(Nile)
+```
+
+```{r}
+data.frame(Year = 1871:1970,
+           Flow = Nile) %>% 
+  ggplot(aes(x = Year, y = Flow)) +
+  geom_point() +
+  geom_line(lty = 2) +
+  theme_bw(base_size = 15) +
+  scale_y_continuous(minor_breaks = NULL,
+                     n.breaks = 10) +
+  scale_x_continuous(breaks = 1871:1970,
+                     minor_breaks = NULL,
+                     expand = c(0, .5, 0, .5)) +
+  theme(axis.text = element_text(colour = 'black'),
+        axis.text.x = element_text(angle = 90,
+                                   vjust = .2))
+```
